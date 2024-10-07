@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>ActionGame</title>
+    <title>Rockman</title>
     <style>
         body {
             margin: 0;
@@ -146,6 +146,12 @@
             border-radius: 30px;
             border: none;
         }
+
+        #playSoundButton {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
     </style>
 </head>
 
@@ -166,6 +172,7 @@
         <button id="a" onclick="a()">A</button>
         <button id="b" onclick="b()">B</button>
     </div>
+    <button id="playSoundButton">Play 8bit Sound</button>
 </body>
 
 <script>
@@ -301,6 +308,49 @@
     const checkCollision = (player, block) => {
         // console.log(player, block);
     };
+
+    function createAudioContext() {
+        return new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    function play8bitSound(audioCtx, frequency, type, duration) {
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+
+        oscillator.type = type; // 'square' が矩形波、'triangle' が三角波
+        oscillator.frequency.setValueAtTime(frequency, audioCtx.currentTime); // 周波数を設定
+
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); // 音量を少し小さめに設定
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + duration);
+    }
+
+    const melody = [
+        { note: 261.63, duration: 0.5 }, // ド (C4)
+        { note: 293.66, duration: 0.5 }, // レ (D4)
+        { note: 329.63, duration: 0.5 }, // ミ (E4)
+        { note: 349.23, duration: 0.5 }, // ファ (F4)
+        { note: 392.00, duration: 0.5 }, // ソ (G4)
+        { note: 440.00, duration: 0.5 }, // ラ (A4)
+        { note: 493.88, duration: 0.5 }, // シ (B4)
+        { note: 523.25, duration: 0.5 }, // ド (C5)
+    ];
+    // ボタンを押したときに8bit風サウンドを鳴らす例
+    document.getElementById('playSoundButton').addEventListener('click', function () {
+        const audioCtx = createAudioContext();  // AudioContextを再初期化
+        let currentTime = 0;  // 再生の基準時間をリセット
+        melody.forEach((noteObj) => {
+            setTimeout(() => {
+                play8bitSound(audioCtx, noteObj.note, 'square', noteObj.duration);
+            }, currentTime * 1000); // 各音の再生タイミングを設定
+            currentTime += noteObj.duration; // 再生時間を次の音に合わせる
+        });
+    });
+
 </script>
 
 </html>
