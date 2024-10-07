@@ -1,0 +1,306 @@
+<html>
+
+<head>
+    <title>ActionGame</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+        }
+
+        #screen {
+            width: 256px;
+            height: 224px;
+            background-color: white;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        #player {
+            box-sizing: border-box;
+            background-color: red;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .cell {
+            box-sizing: border-box;
+            background-color: lightblue;
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .cell.block {
+            box-sizing: border-box;
+            background-color: brown
+        }
+
+        #controller-l {
+            position: absolute;
+            left: 10px;
+            bottom: 0;
+            transform: translateY(-50%);
+            width: 240px;
+            height: 240px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+
+        #controller-l> :first-child {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+        }
+
+        #controller-l> :nth-child(2) {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+        }
+
+        #controller-l> :nth-child(3) {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+        }
+
+        #controller-l> :nth-child(4) {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+        }
+
+        #controller-r {
+            position: absolute;
+            right: 10px;
+            bottom: 0;
+            transform: translateY(-50%);
+            width: 240px;
+            height: 240px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+
+        #controller-r> :first-child {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            border: none;
+        }
+
+        #controller-r> :nth-child(2) {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            border: none;
+        }
+
+        #controller-r> :nth-child(3) {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            border: none;
+        }
+
+        #controller-r> :nth-child(4) {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="screen">
+        <div id="player">
+        </div>
+    </div>
+    <div id="controller-l">
+        <button id="up" onclick="up()">↑</button>
+        <button id="left" onclick="left()">←</button>
+        <button id="right" onclick="right()">→</button>
+        <button id="down" onclick="down()">↓</button>
+    </div>
+    <div id="controller-r">
+        <button id="x" onclick="x()">X</button>
+        <button id="y" onclick="y()">Y</button>
+        <button id="a" onclick="a()">A</button>
+        <button id="b" onclick="b()">B</button>
+    </div>
+</body>
+
+<script>
+    const map = [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ];
+    const player = {
+        x: 0,
+        y: 0,
+        direction: 0,
+        speed: 16,
+        gravity: 1,
+        element: document.getElementById('player'),
+    };
+    const keyInput = {
+        up: false,
+        left: false,
+        right: false,
+        down: false,
+        x: false,
+        y: false,
+        a: false,
+        b: false,
+    };
+
+    const screen = document.getElementById('screen');
+    const controller_l = document.getElementById('controller-l');
+    const controller_r = document.getElementById('controller-r');
+
+    map.forEach((value, i) => {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.style.top = Math.floor(i / 16) * 16;
+        cell.style.left = (i % 16) * 16;
+        cell.id = `cell-${i}`;
+        if (value === 1) {
+            cell.classList.toggle('block');
+        }
+        screen.appendChild(cell);
+    });
+    const resize = () => {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const scale = Math.min(width / 256, height / 240);
+        screen.style.transform = `scale(${scale})`;
+    };
+    window.addEventListener('resize', resize);
+    resize();
+
+    const up = () => {
+        keyInput.up = true;
+    };
+    const left = () => {
+        keyInput.left = true;
+    };
+    const right = () => {
+        keyInput.right = true;
+    };
+    const down = () => {
+        keyInput.down = true;
+    };
+    const x = () => {
+        keyInput.x = true;
+    };
+    const y = () => {
+        keyInput.y = true;
+    };
+    const a = () => {
+        keyInput.a = true;
+    };
+    const b = () => {
+        console.log('b');
+        keyInput.b = true;
+    };
+
+    setInterval(() => {
+        // console.log(nearestCells);
+
+        if (keyInput.left) {
+            player.x -= player.speed;
+        }
+        if (keyInput.right) {
+            player.x += player.speed;
+        }
+        if (keyInput.b) {
+            player.y -= (16 * 3);
+        }
+        // 重力の適用
+        player.y += player.gravity;
+
+        // nearestCells.forEach(cell => {
+        //     checkCollision(player, cell);
+        // });
+
+        //画面外に出ないようにする
+        if (player.y <= 224 - 16 && player.y >= 0) {
+            player.element.style.top = `${player.y}px`;
+        } else {
+            player.y = parseInt(player.element.style.top);
+        }
+        if (player.x <= 256 - 16 && player.x >= 0) {
+            player.element.style.left = `${player.x}px`;
+        } else {
+            player.x = parseInt(player.element.style.left);
+        }
+
+        // プレイヤーの位置を更新
+
+        keyInput.up = false;
+        keyInput.left = false;
+        keyInput.right = false;
+        keyInput.down = false;
+        keyInput.x = false;
+        keyInput.y = false;
+        keyInput.a = false;
+        keyInput.b = false;
+
+    }, 1000 / 60);
+
+    const checkCollision = (player, block) => {
+        // console.log(player, block);
+    };
+</script>
+
+</html>
