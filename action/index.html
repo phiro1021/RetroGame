@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Rockman</title>
+    <title>RetroActionGame</title>
     <style>
         body {
             margin: 0;
@@ -330,14 +330,30 @@
     }
 
     const melody = [
+        // イントロ (ドレミファソ)
         { note: 261.63, duration: 0.5 }, // ド (C4)
         { note: 293.66, duration: 0.5 }, // レ (D4)
         { note: 329.63, duration: 0.5 }, // ミ (E4)
         { note: 349.23, duration: 0.5 }, // ファ (F4)
         { note: 392.00, duration: 0.5 }, // ソ (G4)
+
+        // メインパート (ドミソ、レファラ)
+        { note: 261.63, duration: 0.5 }, // ド (C4)
+        { note: 329.63, duration: 0.5 }, // ミ (E4)
+        { note: 392.00, duration: 0.5 }, // ソ (G4)
+
+        { note: 293.66, duration: 0.5 }, // レ (D4)
+        { note: 349.23, duration: 0.5 }, // ファ (F4)
         { note: 440.00, duration: 0.5 }, // ラ (A4)
+
+        // シメ (シラソファミレド)
         { note: 493.88, duration: 0.5 }, // シ (B4)
-        { note: 523.25, duration: 0.5 }, // ド (C5)
+        { note: 440.00, duration: 0.5 }, // ラ (A4)
+        { note: 392.00, duration: 0.5 }, // ソ (G4)
+        { note: 349.23, duration: 0.5 }, // ファ (F4)
+        { note: 329.63, duration: 0.5 }, // ミ (E4)
+        { note: 293.66, duration: 0.5 }, // レ (D4)
+        { note: 261.63, duration: 1.0 }, // ド (C4)
     ];
     // ボタンを押したときに8bit風サウンドを鳴らす例
     document.getElementById('playSoundButton').addEventListener('click', function () {
