@@ -330,30 +330,433 @@
     }
 
     const melody = [
-        // イントロ (ドレミファソ)
-        { note: 261.63, duration: 0.5 }, // ド (C4)
-        { note: 293.66, duration: 0.5 }, // レ (D4)
-        { note: 329.63, duration: 0.5 }, // ミ (E4)
-        { note: 349.23, duration: 0.5 }, // ファ (F4)
-        { note: 392.00, duration: 0.5 }, // ソ (G4)
+        // ドレミ
+        // { note: 130.81, duration: 0.25 }, // ド (C3)
+        // { note: 146.83, duration: 0.25 }, // レ (D3)
+        // { note: 164.81, duration: 0.25 }, // ミ (E3)
+        // { note: 174.61, duration: 0.25 }, // ファ (F3)
+        // { note: 196.00, duration: 0.25 }, // ソ (G3)
+        // { note: 220.00, duration: 0.25 }, // ラ (A3)
+        // { note: 246.94, duration: 0.25 }, // シ (B3)
+        // { note: 261.63, duration: 0.25 }, // ド (C4)
+        // { note: 293.66, duration: 0.25 }, // レ (D4)
+        // { note: 329.63, duration: 0.25 }, // ミ (E4)
+        // { note: 349.23, duration: 0.25 }, // ファ (F4)
+        // { note: 392.00, duration: 0.25 }, // ソ (G4)
+        // { note: 440.00, duration: 0.25 }, // ラ (A4)
+        // { note: 493.88, duration: 0.25 }, // シ (B4)
+        // { note: 523.25, duration: 0.25 }, // ド (C5)
+        // { note: 587.33, duration: 0.25 }, // レ (D5)
+        // { note: 659.25, duration: 0.25 }, // ミ (E5)
+        // { note: 698.46, duration: 0.25 }, // ファ (F5)
+        // { note: 783.99, duration: 0.25 }, // ソ (G5)
+        // { note: 880.00, duration: 0.25 }, // ラ (A5)
+        // { note: 987.77, duration: 0.25 }, // シ (B5)
+        // { note: 1046.50, duration: 0.25 }, // ド (C6)
 
-        // メインパート (ドミソ、レファラ)
-        { note: 261.63, duration: 0.5 }, // ド (C4)
-        { note: 329.63, duration: 0.5 }, // ミ (E4)
-        { note: 392.00, duration: 0.5 }, // ソ (G4)
+        // //黒鍵盤
+        // { note: 138.59, duration: 0.25 }, // ド# (C#3)
+        // { note: 155.56, duration: 0.25 }, // レ# (D#3)
+        // { note: 185.00, duration: 0.25 }, // ファ# (F#3)
+        // { note: 207.65, duration: 0.25 }, // ソ# (G#3)
+        // { note: 233.08, duration: 0.25 }, // ラ# (A#3)
+        // { note: 277.18, duration: 0.25 }, // ド# (C#4)
+        // { note: 311.13, duration: 0.25 }, // レ# (D#4)
+        // { note: 369.99, duration: 0.25 }, // ファ# (F#4)
+        // { note: 415.30, duration: 0.25 }, // ソ# (G#4)
+        // { note: 466.16, duration: 0.25 }, // ラ# (A#4)
+        // { note: 554.37, duration: 0.25 }, // ド# (C#5)
+        // { note: 622.25, duration: 0.25 }, // レ# (D#5)
+        // { note: 739.99, duration: 0.25 }, // ファ# (F#5)
+        // { note: 830.61, duration: 0.25 }, // ソ# (G#5)
+        // { note: 932.33, duration: 0.25 }, // ラ# (A#5)
+        // { note: 1108.73, duration: 0.25 }, // ド# (C#6)
+        // { note: 1244.51, duration: 0.25 }, // レ# (D#6)
 
-        { note: 293.66, duration: 0.5 }, // レ (D4)
-        { note: 349.23, duration: 0.5 }, // ファ (F4)
-        { note: 440.00, duration: 0.5 }, // ラ (A4)
+        //曲の開始
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
 
-        // シメ (シラソファミレド)
-        { note: 493.88, duration: 0.5 }, // シ (B4)
-        { note: 440.00, duration: 0.5 }, // ラ (A4)
-        { note: 392.00, duration: 0.5 }, // ソ (G4)
-        { note: 349.23, duration: 0.5 }, // ファ (F4)
-        { note: 329.63, duration: 0.5 }, // ミ (E4)
-        { note: 293.66, duration: 0.5 }, // レ (D4)
-        { note: 261.63, duration: 1.0 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 329.63, duration: 0.50 }, // ミ (E4)
+
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 293.66, duration: 0.50 }, // レ (D4)
+
+
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 246.94, duration: 0.50 }, // シ (B3)
+
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 369.99, duration: 0.50 }, // ファ# (F#4)
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 369.99, duration: 0.50 }, // ファ# (F#4)
+
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.75 }, // ラ (A4)
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 329.63, duration: 0.50 }, // ミ (E4)
+
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 293.66, duration: 0.50 }, // レ (D4)
+
+
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 246.94, duration: 0.50 }, // シ (B3)
+
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 369.99, duration: 0.50 }, // ファ# (F#4)
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 369.99, duration: 0.50 }, // ファ# (F#4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.50 }, // ラ (A4)
+
+
+        { note: 440.00, duration: 0.50 }, // ラ (A4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+
+        { note: 523.25, duration: 0.25 }, // ド (C5)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 349.23, duration: 0.25 }, // ファ (F4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 261.63, duration: 0.50 }, // ド (C4)
+
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.50 }, // ソ (G4)
+
+
+        { note: 523.25, duration: 0.25 }, // ド (C5)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 415.30, duration: 0.50 }, // ソ# (G#4)
+
+        { note: 415.30, duration: 0.50 }, // ソ# (G#4)
+        { note: 415.30, duration: 0.25 }, // ソ# (G#4)
+        { note: 493.88, duration: 0.25 }, // シ (B4)
+        { note: 659.25, duration: 0.50 }, // ミ (E5)
+
+
+        { note: 164.81, duration: 0.25 }, // ミ (E3)
+        { note: 146.83, duration: 0.25 }, // レ (D3)
+
+        { note: 196.00, duration: 0.25 }, // ソ (G3)
+        { note: 174.61, duration: 0.25 }, // ファ (F3)
+        { note: 164.81, duration: 0.25 }, // ミ (E3)
+        { note: 174.61, duration: 0.25 }, // ファ (F3)
+        { note: 164.81, duration: 0.25 }, // ミ (E3)
+
+        { note: 146.83, duration: 0.25 }, // レ (D3)
+        { note: 196.00, duration: 0.25 }, // ソ (G3)
+
+        { note: 174.61, duration: 0.25 }, // ファ (F3)
+        { note: 164.81, duration: 0.25 }, // ミ (E3)
+        { note: 174.61, duration: 0.25 }, // ファ (F3)
+        { note: 130.81, duration: 0.25 }, // ド (C3)
+
+        { note: 130.81, duration: 0.25 }, // ド (C3)
+        { note: 146.83, duration: 0.25 }, // レ (D3)
+        { note: 164.81, duration: 0.25 }, // ミ (E3)
+        { note: 123.47, duration: 0.50 }, // シ (B2)
+
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 369.99, duration: 0.25 }, // ファ# (F#4)
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 369.99, duration: 0.25 }, // ファ# (F#4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.50 }, // ラ (A4)
+
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 196.00, duration: 0.25 }, // ソ (G3)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+        { note: 220.00, duration: 0.50 }, // ラ (A3)
+
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 196.00, duration: 0.25 }, // ソ (G3)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 246.94, duration: 0.50 }, // シ (B3)
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+        { note: 220.00, duration: 0.25 }, // ラ (A3)
+
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+        { note: 220.00, duration: 0.50 }, // ラ (A3)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+
+        { note: 523.25, duration: 0.25 }, // ド (C5)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 349.23, duration: 0.25 }, // ファ (F4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+
+        { note: 523.25, duration: 0.25 }, // ド (C5)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 415.30, duration: 0.25 }, // ソ# (G#4)
+
+        { note: 415.30, duration: 0.25 }, // ソ# (G#4)
+        { note: 415.30, duration: 0.25 }, // ソ# (G#4)
+        { note: 493.88, duration: 0.25 }, // シ (B4)
+        { note: 659.25, duration: 0.50 }, // ミ (E5)
+
+        { note: 261.63, duration: 0.50 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.50 }, // ド (C4)
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 349.23, duration: 0.25 }, // ファ (F4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+
+        //おくせんまん
+        { note: 293.66, duration: 0.50 }, // レ (D4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 329.63, duration: 0.50 }, // ミ (E4)
+        //おくせんまん
+        { note: 293.66, duration: 0.50 }, // レ (D4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 329.63, duration: 0.50 }, // ミ (E4)
+
+
+        { note: 261.63, duration: 0.50 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+
+        { note: 261.63, duration: 0.50 }, // ド (C4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 349.23, duration: 0.25 }, // ファ (F4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.25 }, // レ (D4)
+
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+        { note: 220.00, duration: 0.75 }, // ラ (A3)
+
+
+        { note: 261.63, duration: 0.50 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+
+        { note: 261.63, duration: 0.50 }, // ド (C4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 349.23, duration: 0.25 }, // ファ (F4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.50 }, // レ (D4)
+
+        //おくせんまん
+        { note: 293.66, duration: 0.50 }, // レ (D4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 329.63, duration: 0.50 }, // ミ (E4)
+        //おくせんまん
+        { note: 293.66, duration: 0.50 }, // レ (D4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 329.63, duration: 0.50 }, // ミ (E4)
+
+
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+
+        { note: 261.63, duration: 0.50 }, // ド (C4)
+        { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+        { note: 392.00, duration: 0.25 }, // ソ (G4)
+        { note: 349.23, duration: 0.25 }, // ファ (F4)
+        { note: 329.63, duration: 0.25 }, // ミ (E4)
+        { note: 293.66, duration: 0.50 }, // レ (D4)
+
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+        { note: 261.63, duration: 0.25 }, // ド (C4)
+        { note: 246.94, duration: 0.25 }, // シ (B3)
+        { note: 220.00, duration: 0.75 }, // ラ (A3)
+
+        // // イントロ (ドレミファソ)
+        // { note: 261.63, duration: 0.25 }, // ド (C4)
+        // { note: 293.66, duration: 0.25 }, // レ (D4)
+        // { note: 329.63, duration: 0.25 }, // ミ (E4)
+        // { note: 349.23, duration: 0.25 }, // ファ (F4)
+        // { note: 392.00, duration: 0.25 }, // ソ (G4)
+
+        // // メインパート (ドミソ、レファラ)
+        // { note: 261.63, duration: 0.25 }, // ド (C4)
+        // { note: 329.63, duration: 0.25 }, // ミ (E4)
+        // { note: 392.00, duration: 0.25 }, // ソ (G4)
+
+        // { note: 293.66, duration: 0.25 }, // レ (D4)
+        // { note: 349.23, duration: 0.25 }, // ファ (F4)
+        // { note: 440.00, duration: 0.25 }, // ラ (A4)
+
+
     ];
     // ボタンを押したときに8bit風サウンドを鳴らす例
     document.getElementById('playSoundButton').addEventListener('click', function () {
